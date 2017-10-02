@@ -1,0 +1,2 @@
+FROM microsoft/mssql-server-windows-developer
+ENV ACCEPT_EULA=Y
