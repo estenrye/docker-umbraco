@@ -1,0 +1,6 @@
+FROM microsoft/aspnet
+EXPOSE 80
+
+# setup IIS
+ADD *.ps1 /scripts/
+RUN /scripts/Install-Umbraco.ps1
