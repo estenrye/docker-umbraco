@@ -1,2 +1,5 @@
 FROM microsoft/mssql-server-windows-developer
 ENV ACCEPT_EULA=Y
+ADD *.sql *.ps1 /scripts/
+RUN Invoke-SqlCmd -InputFile /scripts/Install-Db.sql
+ENTRYPOINT [ "powershell", "-Command", "/Scripts/Run.ps1" ]
