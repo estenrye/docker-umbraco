@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+  umbraco-web:
+    build:
+      context: ../
+      args:
+        - UmbracoVersion=7.7.2
+    image: estenrye/umbraco
+    networks:
+      - umbraco
+  umbraco-db:
+    build:
+      context: ../database
+    image: estenrye/umbraco-db
+    environment:
+      - sa_password=${SA_PASSWORD}
+      - UmbracoDbPassword=${DB_PASSWORD}
+    networks:
+      - umbraco
+
+networks:
+  umbraco:

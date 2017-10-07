@@ -1,6 +1,6 @@
 FROM microsoft/aspnet
 EXPOSE 80
-
+ARG UmbracoVersion=7.7.2
 # setup IIS
 ADD *.ps1 /scripts/
 RUN /scripts/Install-Umbraco.ps1
